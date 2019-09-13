@@ -38,8 +38,6 @@ function memeHandler() {
 
             //fetch memeURL from request body
             var memeURL = req.body.memeURL
-            
-            console.log(memeURL)
 
             //open connection and execute SQL query
             const client = await pool.connect()
