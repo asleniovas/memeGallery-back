@@ -9,7 +9,7 @@ function memeHandler() {
     })
 
     //GET all memes
-    this.getAll = function (req, res) {
+    this.getAll = async (req, res) => {
 
         try {
 
