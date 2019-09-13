@@ -38,11 +38,13 @@ function memeHandler() {
 
             //fetch memeURL from request body
             var memeURL = req.body.memeURL
+            
+            console.print(memeURL)
 
             //open connection and execute SQL query
             const client = await pool.connect()
             const queryResult = await client.query('INSERT INTO meme_URLs (url) VALUES ($1)', [memeURL]);
-            const results = queryResult ? queryResult.rows : null;
+            const results = queryResult
 
             //return an array of JSON objects
             res.status(200).json(results);
