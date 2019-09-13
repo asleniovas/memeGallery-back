@@ -21,7 +21,7 @@ app
 
   //.set('views', path.join(__dirname, 'views'))
 
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 
 //route initialisation
