@@ -19,7 +19,7 @@ express()
       const client = await pool.connect()
       const result = await client.query('SELECT * FROM meme_URLs');
       const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
+      res.status(200).json(results);
       client.release();
     } catch (err) {
       console.error(err);
