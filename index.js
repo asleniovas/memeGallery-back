@@ -14,11 +14,12 @@ var app = express()
 app
 
   .use(express.static(path.join(__dirname, 'public')))
+  .use(express.static(path.join(__dirname, 'views')))
   .use('/controllers', express.static(process.cwd() + '/controllers'))
   .use(bodyParser.urlencoded({extended: false}))
   .use(bodyParser.json())
 
-  .set('views', path.join(__dirname, 'views'))
+  //.set('views', path.join(__dirname, 'views'))
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
