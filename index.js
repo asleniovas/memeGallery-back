@@ -1,12 +1,11 @@
+//routes modules
+var vehicleRoutes = require('./routes/memeRoutes.js');
+
 //key modules
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const bodyParser = require('body-parser');
-
-//routes modules
-var vehicleRoutes = require('./routes/memeRoutes.js');
-
 
 var app = express()
 
