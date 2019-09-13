@@ -64,7 +64,7 @@ function memeHandler() {
 
         try {
 
-            res.render('pages/index')
+            res.render('pages/index.html')
 
         }
         catch (err) {
