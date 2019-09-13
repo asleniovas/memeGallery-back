@@ -6,7 +6,8 @@ module.exports = function (app) {
     
     //GET all memes
     app.route('/api/memes')
-        .get(memeHandler.getAll)
+        .get(memeHandler.getAllMemes)
+        .post(memeHandler.insertMeme)
 
     app.route('/')
         .get(memeHandler.getIndexView)
