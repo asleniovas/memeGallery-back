@@ -14,7 +14,7 @@ var app = express()
 app
 
   .use(express.static(path.join(__dirname, 'public')))
-  .use(express.static(path.join(__dirname, 'views')))
+  .use(express.static(path.join(__dirname, 'views/pages')))
   .use('/controllers', express.static(process.cwd() + '/controllers'))
   .use(bodyParser.urlencoded({extended: false}))
   .use(bodyParser.json())
