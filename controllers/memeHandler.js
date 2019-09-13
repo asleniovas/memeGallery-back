@@ -18,13 +18,28 @@ function memeHandler() {
             const queryResult = await client.query('SELECT * FROM meme_URLs');
             const results = queryResult ? queryResult.rows : null;
 
-            //return a results array with JSON objects
+            //return an array of JSON objects
             res.status(200).json(results);
 
             //end connection
             client.release();
           
         } 
+        catch (err) {
+
+            console.error(err);
+            res.status(500).send("Error " + err);
+        }
+    }
+
+    //GET index View
+    this.getIndexView = async (req, res) => {
+
+        try {
+
+            res.render('pages/index')
+
+        }
         catch (err) {
 
             console.error(err);
