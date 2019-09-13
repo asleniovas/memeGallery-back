@@ -14,7 +14,7 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
 
-  .get('/db', async (req, res) => {
+  .get('/api/memes', async (req, res) => {
     try {
       const client = await pool.connect()
       const result = await client.query('SELECT * FROM meme_URLs');
