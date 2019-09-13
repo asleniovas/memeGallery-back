@@ -16,7 +16,7 @@ function memeHandler() {
             //connect to db and execute query
             const client = await pool.connect()
             const queryResult = await client.query('SELECT * FROM meme_URLs');
-            const results = { 'results': (queryResult) ? queryResult.rows : null};
+            const results = queryResult ? queryResult.rows : null;
 
             //return a results array with JSON objects
             res.status(200).json(results);
