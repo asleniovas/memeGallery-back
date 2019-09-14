@@ -43,10 +43,12 @@ function memeHandler() {
             //open connection and execute SQL query
             const client = await pool.connect()
             const queryResult = await client.query('INSERT INTO meme_URLs (url) VALUES ($1)', [memeURL]);
-            const results = queryResult
 
+            //second query to fetch created meme for reactive UI updates
+            const queryResult2 = await client.query('SELECT * FROM meme_URLs WHERE url = 1$', [memeURL]);
+            
             //return query response
-            res.status(201).json(results);
+            res.status(201).json(queryResult2);
 
             //end connection
             client.release();
