@@ -9,6 +9,9 @@ module.exports = function (app) {
         .get(memeHandler.getAllMemes)
         .post(memeHandler.insertMeme)
 
+    app.route('/api/memes/:memeId')
+        .delete(memeHandler.deleteMeme)
+
     app.route('/')
         .get(memeHandler.getIndexView)
 

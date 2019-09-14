@@ -18,8 +18,6 @@ app
   .use(bodyParser.urlencoded({extended: false}))
   .use(bodyParser.json())
 
-  //.set('views', path.join(__dirname, 'views'))
-
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 

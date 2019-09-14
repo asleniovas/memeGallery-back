@@ -32,6 +32,7 @@ function memeHandler() {
         }
     }
 
+    //POST new meme
     this.insertMeme = async (req, res) => {
 
         try {
@@ -44,13 +45,40 @@ function memeHandler() {
             const queryResult = await client.query('INSERT INTO meme_URLs (url) VALUES ($1)', [memeURL]);
             const results = queryResult
 
-            //return an array of JSON objects
-            res.status(200).json(results);
+            //return query response
+            res.status(201).json(results);
 
             //end connection
             client.release();
           
         } 
+        catch (err) {
+
+            console.error(err);
+            res.status(500).send("Error " + err);
+        }
+
+    }
+
+    //DELETE meme by id
+    this.deleteMeme = async (req, res) => {
+
+        try {
+
+            //fetch meme id
+            var memeId = req.params.memeId;
+
+            //open connection and execute SQL query
+            const client = await pool.connect();
+            const queryResult = await client.query('DELETE FROM meme_URLs WHERE id = $1', [memeid]);
+            const results = queryResult;
+
+            //return query response
+            res.status(200).json(results);
+
+            //end connection
+            client.release();
+        }
         catch (err) {
 
             console.error(err);
