@@ -70,7 +70,7 @@ function memeHandler() {
 
             //open connection and execute SQL query
             const client = await pool.connect();
-            const queryResult = await client.query('DELETE FROM meme_URLs WHERE id = $1', [memeid]);
+            const queryResult = await client.query('DELETE FROM meme_URLs WHERE id = $1', [memeId]);
             const results = queryResult;
 
             //return query response
