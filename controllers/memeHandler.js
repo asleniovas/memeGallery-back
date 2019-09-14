@@ -48,7 +48,7 @@ function memeHandler() {
             const queryResult2 = await client.query('SELECT * FROM meme_URLs WHERE url = $1', [memeURL]);
             
             //return query response
-            res.status(201).json(queryResult2);
+            res.status(201).json(queryResult2.rows);
 
             //end connection
             client.release();
