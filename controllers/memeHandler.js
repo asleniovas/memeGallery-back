@@ -45,7 +45,7 @@ function memeHandler() {
             const queryResult = await client.query('INSERT INTO meme_URLs (url) VALUES ($1)', [memeURL]);
 
             //second query to fetch created meme for reactive UI updates
-            const queryResult2 = await client.query('SELECT * FROM meme_URLs WHERE url = 1$', [memeURL]);
+            const queryResult2 = await client.query('SELECT * FROM meme_URLs WHERE url = $1', [memeURL]);
             
             //return query response
             res.status(201).json(queryResult2);
